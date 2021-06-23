@@ -13,10 +13,8 @@ class IndexProducts extends Component {
   }
 
   componentDidMount () {
-    console.log(this.state)
     indexProducts()
       .then(res => this.setState({ products: res.data.products }))
-    console.log(this.state)
   }
 
   render () {

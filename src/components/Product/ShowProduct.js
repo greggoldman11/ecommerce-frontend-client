@@ -20,9 +20,24 @@ class ShowProduct extends Component {
   }
 
   render () {
+    const { product } = this.state
+
+    let productJsx = ''
+
+    if (product === null) {
+      productJsx = 'Loading...'
+    } else {
+      productJsx = (
+        <Fragment>
+          <h3>{product.name}</h3>
+          <p>{product.price}</p>
+        </Fragment>
+      )
+    }
     return (
       <Fragment>
         <h2>Show Product Page</h2>
+        {productJsx}
       </Fragment>
     )
   }

@@ -34,6 +34,7 @@ class HomeIndexProducts extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
             index > 5 &&
+<<<<<<< HEAD
             <div className='d-flex'>
               <ProductCard
                 key={product.id}
@@ -49,6 +50,9 @@ class HomeIndexProducts extends Component {
 <<<<<<< HEAD
 >>>>>>> f8f5e29 (Fixes homepage index layout)
             <ProductCard
+=======
+            <ProductCard className='productCard'
+>>>>>>> 9b9dcdb (Update the home index style)
               product={product}
               key={product.id}
               name={product.name}

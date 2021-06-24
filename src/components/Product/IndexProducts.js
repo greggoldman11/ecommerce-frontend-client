@@ -15,9 +15,11 @@ class IndexProducts extends Component {
   componentDidMount () {
     indexProducts()
       .then(res => this.setState({ products: res.data.products }))
+      .catch(console.error)
   }
 
   render () {
+    console.log(this.state.products)
     let productsJSX = ''
 
     if (this.state.products === null) {
@@ -28,10 +30,10 @@ class IndexProducts extends Component {
       productsJSX =
           this.state.products.map(product => (
             <ProductCard
-              key={product._id}
+              product={product}
+              key={product.id}
               name={product.name}
-              description={product.description}
-              image={product.image}
+              price={product.price}
             />
           ))
     }

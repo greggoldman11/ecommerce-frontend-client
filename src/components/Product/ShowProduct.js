@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import { showProduct } from './../../api/products'
+// import ShowProductHeading from './ShowProductHeading'
 
 class ShowProduct extends Component {
   constructor () {
@@ -21,7 +22,6 @@ class ShowProduct extends Component {
 
   render () {
     const { product } = this.state
-
     let productJsx = ''
 
     if (product === null) {
@@ -36,8 +36,10 @@ class ShowProduct extends Component {
     }
     return (
       <Fragment>
-        <h2>Show Product Page</h2>
         {productJsx}
+        <div>
+          <img src='https://images.unsplash.com/photo-1593642532009-6ba71e22f468?ixid=MnwxMjA3fDF8MHxlZGl0[…]fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'/>
+        </div>
       </Fragment>
     )
   }

@@ -12,6 +12,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import IndexProducts from './components/Product/IndexProducts'
 import ShowProduct from './components/Product/ShowProduct'
 import HomePage from './components/HomePage'
+import Footer from './components/Footer'
 // import Cart from './components/Cart'
 
 class App extends Component {
@@ -73,6 +74,7 @@ class App extends Component {
           <Route exact path='/products/:id' render={ShowProduct} />
           <Route exact path='/' render={HomePage} />
         </main>
+        <Footer />
       </Fragment>
     )
   }

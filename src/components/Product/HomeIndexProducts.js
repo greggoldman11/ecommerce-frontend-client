@@ -4,7 +4,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import { indexProducts } from './../../api/products'
 import ProductCard from './ProductCard'
 
-class IndexProducts extends Component {
+class HomeIndexProducts extends Component {
   constructor () {
     super()
     this.state = {
@@ -29,7 +29,7 @@ class IndexProducts extends Component {
     } else {
       productsJSX =
           this.state.products.map((product, index) => (
-            index < 3 &&
+            index > 5 &&
             <ProductCard
               product={product}
               key={product.id}
@@ -40,11 +40,11 @@ class IndexProducts extends Component {
     }
     return (
       <Fragment>
-        <h2>Products Index Page</h2>
+        <h2>Featured Products</h2>
         {productsJSX}
       </Fragment>
     )
   }
 }
 
-export default IndexProducts
+export default HomeIndexProducts

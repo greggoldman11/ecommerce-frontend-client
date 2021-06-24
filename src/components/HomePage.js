@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react'
-import ProductCard from './Product/ProductCard'
+// import ProductCard from './Product/ProductCard'
 import Carousel from 'react-bootstrap/Carousel'
 // import { indexProducts } from './../api/products'
 
@@ -50,24 +50,6 @@ const HomePage = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
-      <section>
-        <h2>Featured Products</h2>
-        <div className='d-flex'>
-          <ProductCard
-            key='60d4963e299d18ed5b46102a'
-            name='bananaa'
-            price='30' />
-          <ProductCard
-            key='60d4963e299d18ed5b46102a'
-            name='bananaa'
-            price='30' />
-          <ProductCard
-            key='60d4963e299d18ed5b46102a'
-            name='bananaa'
-            price='30' />
-        </div>
-      </section>
-
     </Fragment>
   )
 }

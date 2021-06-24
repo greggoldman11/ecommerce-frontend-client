@@ -28,19 +28,26 @@ class IndexProducts extends Component {
       productsJSX = <p>No products to display!</p>
     } else {
       productsJSX =
-          this.state.products.map(product => (
-            <ProductCard
-              product={product}
-              key={product.id}
-              name={product.name}
-              price={product.price}
-            />
-          ))
+          this.state.products.map(product => {
+            console.log(product)
+            return (
+              <li key={product._id}>
+                <ProductCard
+                  name={product.name}
+                  price={product.price}
+                />
+              </li>
+            )
+          })
     }
     return (
       <Fragment>
-        <h2>Products Index Page</h2>
-        {productsJSX}
+        <h2>All Products</h2>
+        <div className='d-flex'>
+          <ul>
+            {productsJSX}
+          </ul>
+        </div>
       </Fragment>
     )
   }

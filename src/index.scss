@@ -10,10 +10,7 @@ h2 {
   margin-top: 20px;
 }
 
-.d-flex {
-  justify-content: space-between;
-}
-
-.carousel-image {
-  
+.productCard {
+  display: flex;
+  justify-content: center;
 }

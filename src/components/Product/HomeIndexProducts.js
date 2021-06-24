@@ -31,7 +31,7 @@ class HomeIndexProducts extends Component {
       productsJSX =
           this.state.products.map((product, index) => (
             index > 5 &&
-            <ProductCard
+            <ProductCard className='productCard'
               product={product}
               key={product.id}
               name={product.name}

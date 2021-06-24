@@ -11,6 +11,7 @@ const ProductCard = (product) => (
       <Card.Text>
         {product.price}
       </Card.Text>
+      {console.log(product.product._id)}
       <Button variant="primary"><Link to={`/products/${product._id}`}>See Product</Link></Button>
     </Card.Body>
   </Card>

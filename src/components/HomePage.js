@@ -11,6 +11,48 @@ const HomePage = () => {
   //   console.log(products)
   //     .catch(console.error)
   // })
+
+  const product = () => {
+    const prod = [{
+      id: 1,
+      name: 'Apple',
+      price: 10
+    }, {
+      id: 2,
+      name: 'b',
+      price: 10
+    }, {
+      id: 3,
+      name: 'Apple',
+      price: 10 }
+    ]
+    let productCard = null
+    const rand = Math.floor(Math.random() * 3)
+    if (rand === prod.id) {
+      productCard = <ProductCard
+        key={prod.id}
+        name={prod.name}
+        price={prod.price}
+      />
+      return productCard
+    } else if (rand === prod.id) {
+      productCard = <ProductCard
+        key={prod.id}
+        name={prod.name}
+        price={prod.price}
+      />
+      return productCard
+    } else if (rand === prod.id) {
+      productCard = <ProductCard
+        key={prod.id}
+        name={prod.name}
+        price={prod.price}
+      />
+      return productCard
+    } else {
+      console.log(rand)
+    }
+  }
   return (
     <Fragment>
       <Carousel fade>
@@ -53,18 +95,9 @@ const HomePage = () => {
       <section>
         <h2>Featured Products</h2>
         <div className='d-flex'>
-          <ProductCard
-            key='60d4963e299d18ed5b46102a'
-            name='bananaa'
-            price='30' />
-          <ProductCard
-            key='60d4963e299d18ed5b46102a'
-            name='bananaa'
-            price='30' />
-          <ProductCard
-            key='60d4963e299d18ed5b46102a'
-            name='bananaa'
-            price='30' />
+          <p>{product()}</p>
+          <p>{product()}</p>
+          <p>{product()}</p>
         </div>
       </section>
 

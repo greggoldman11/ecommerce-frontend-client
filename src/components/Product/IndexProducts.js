@@ -20,6 +20,7 @@ class IndexProducts extends Component {
 
   render () {
     console.log(this.state.products)
+
     let productsJSX = ''
 
     if (this.state.products === null) {
@@ -28,8 +29,7 @@ class IndexProducts extends Component {
       productsJSX = <p>No products to display!</p>
     } else {
       productsJSX =
-          this.state.products.map((product, index) => (
-            index < 3 &&
+          this.state.products.map(product => (
             <ProductCard
               product={product}
               key={product.id}

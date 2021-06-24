@@ -20,6 +20,7 @@ class HomeIndexProducts extends Component {
 
   render () {
     console.log(this.state.products)
+
     let productsJSX = ''
 
     if (this.state.products === null) {

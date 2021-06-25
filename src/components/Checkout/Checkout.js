@@ -1,5 +1,5 @@
 import React from 'react'
-import { CardElement, ElementsConsumer } from '@stripe/react-stripe-js'
+import { CardNumberElement, CardExpiryElement, CardCvcElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import Form from 'react-bootstrap/Form'
 
 class CheckoutForm extends React.Component {
@@ -18,7 +18,7 @@ class CheckoutForm extends React.Component {
     // Get a reference to a mounted CardElement. Elements knows how
     // to find your CardElement because there can only ever be one of
     // each type of element.
-    const cardElement = elements.getElement(CardElement)
+    const cardElement = elements.getElement(CardNumberElement)
 
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
@@ -36,7 +36,39 @@ class CheckoutForm extends React.Component {
     const { stripe } = this.props
     return (
       <Form onSubmit={this.handleSubmit}>
-        <CardElement
+        <CardNumberElement
+          options={{
+            style: {
+              base: {
+                fontSize: '16px',
+                color: '#424770',
+                ':placeholder': {
+                  color: '#aab7c4'
+                }
+              },
+              invalid: {
+                color: '#9e2146'
+              }
+            }
+          }}
+        />
+        <CardExpiryElement
+          options={{
+            style: {
+              base: {
+                fontSize: '16px',
+                color: '#424770',
+                ':placeholder': {
+                  color: '#aab7c4'
+                }
+              },
+              invalid: {
+                color: '#9e2146'
+              }
+            }
+          }}
+        />
+        <CardCvcElement
           options={{
             style: {
               base: {

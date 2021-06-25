@@ -37,6 +37,7 @@ class HomeIndexProducts extends Component {
               name={product.name}
               price={product.price}
             />
+
           ))
     }
     return (

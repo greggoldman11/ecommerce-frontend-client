@@ -32,13 +32,13 @@ class IndexProducts extends Component {
           this.state.products.map(product => {
             console.log(product)
             return (
-              <li key={product._id}>
+              <div key={product._id}>
                 <ProductCard
                   id={product._id}
                   name={product.name}
                   price={product.price}
                 />
-              </li>
+              </div>
             )
           })
     }
@@ -46,9 +46,7 @@ class IndexProducts extends Component {
       <Fragment>
         <h2>All Products</h2>
         <div className='d-flex'>
-          <ul>
-            {productsJSX}
-          </ul>
+          {productsJSX}
         </div>
       </Fragment>
     )

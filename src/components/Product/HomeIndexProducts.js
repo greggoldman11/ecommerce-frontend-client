@@ -50,6 +50,7 @@ class HomeIndexProducts extends Component {
 =======
             index < (this.state.products.length - 3) &&
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f8f5e29 (Fixes homepage index layout)
 =======
             index > (this.state.products.length - 3) &&
@@ -68,6 +69,8 @@ class HomeIndexProducts extends Component {
             />
 >>>>>>> d3145ce (Adds index products for home page)
 =======
+=======
+>>>>>>> 620c8fc (Fixes route from home page index to show page)
             <div key={product._id}>
               <ProductCard
                 product={product}

@@ -1,8 +1,11 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
+<<<<<<< HEAD
 // This will create the cart when the user signs up
 // and after the user signs out
+=======
+>>>>>>> d3cf1e9 (This commit will add the create axios call and create the cart)
 export const createCart = (user) => {
   return axios({
     method: 'POST',
@@ -12,6 +15,7 @@ export const createCart = (user) => {
     }
   })
 }
+<<<<<<< HEAD
 
 // This will add get a single Cart
 export const getCart = (id, user) => {
@@ -23,3 +27,5 @@ export const getCart = (id, user) => {
     }
   })
 }
+=======
+>>>>>>> d3cf1e9 (This commit will add the create axios call and create the cart)

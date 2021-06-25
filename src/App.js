@@ -14,6 +14,7 @@ import ShowProduct from './components/Product/ShowProduct'
 import HomeIndexProducts from './components/Product/HomeIndexProducts'
 import HomePage from './components/HomePage'
 import Footer from './components/Footer'
+import Cart from './components/Cart/Cart'
 // import Cart from './components/Cart'
 
 class App extends Component {
@@ -75,6 +76,9 @@ class App extends Component {
           <Route exact path='/products/:id' render={ShowProduct} />
           <Route exact path='/' render={HomePage} />
           <Route exact path='/' component={HomeIndexProducts} />
+          <AuthenticatedRoute user={user} path='/cart' render={() => (
+            <Cart msgAlert={this.msgAlert} user={user}/>
+          )}/>
         </main>
         <Footer />
       </Fragment>

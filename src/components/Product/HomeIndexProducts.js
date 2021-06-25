@@ -15,6 +15,7 @@ class HomeIndexProducts extends Component {
   componentDidMount () {
     indexProducts()
       .then(res => this.setState({ products: res.data.products }))
+      .then(console.log(this.state.products))
       .catch(console.error)
   }
 
@@ -45,6 +46,7 @@ class HomeIndexProducts extends Component {
             index > (this.state.products.length - 3) &&
 =======
             index < (this.state.products.length - 3) &&
+<<<<<<< HEAD
 >>>>>>> f8f5e29 (Fixes homepage index layout)
             <ProductCard
               product={product}
@@ -53,6 +55,17 @@ class HomeIndexProducts extends Component {
               price={product.price}
             />
 >>>>>>> d3145ce (Adds index products for home page)
+=======
+            <div key={product._id}>
+              <ProductCard
+                product={product}
+                id={product._id}
+                name={product.name}
+                price={product.price}
+              />
+            </div>
+
+>>>>>>> 620c8fc (Fixes route from home page index to show page)
           ))
     }
     return (

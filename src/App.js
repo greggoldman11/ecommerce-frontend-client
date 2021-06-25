@@ -15,7 +15,11 @@ import HomeIndexProducts from './components/Product/HomeIndexProducts'
 import HomePage from './components/HomePage'
 import Footer from './components/Footer'
 import Cart from './components/Cart/Cart'
+<<<<<<< HEAD
 import CheckoutForm from './components/Checkout/Checkout'
+=======
+import CheckoutForm from './components/Checkout/CheckoutForm'
+>>>>>>> c277b51 (Adds payment form)
 // import Cart from './components/Cart'
 
 class App extends Component {
@@ -80,6 +84,9 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/cart' render={() => (
             <Cart msgAlert={this.msgAlert} user={user} component={CheckoutForm}/>
           )}/>
+          <AuthenticatedRoute user={user} path='/checkout' render={() => (
+            <CheckoutForm msgAlert={this.msgAlert} user={user} />
+          )} />
         </main>
         <Footer />
       </Fragment>

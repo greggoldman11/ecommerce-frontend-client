@@ -31,6 +31,7 @@ class HomeIndexProducts extends Component {
       productsJSX =
           this.state.products.map((product, index) => (
 <<<<<<< HEAD
+<<<<<<< HEAD
             index > 5 &&
             <div className='d-flex'>
               <ProductCard
@@ -42,6 +43,9 @@ class HomeIndexProducts extends Component {
             </div>
 =======
             index > (this.state.products.length - 3) &&
+=======
+            index < (this.state.products.length - 3) &&
+>>>>>>> f8f5e29 (Fixes homepage index layout)
             <ProductCard
               product={product}
               key={product.id}
@@ -54,7 +58,9 @@ class HomeIndexProducts extends Component {
     return (
       <Fragment>
         <h2>Featured Products</h2>
-        {productsJSX}
+        <div className='d-flex'>
+          {productsJSX}
+        </div>
       </Fragment>
     )
   }

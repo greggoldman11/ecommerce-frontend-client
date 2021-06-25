@@ -30,6 +30,7 @@ class HomeIndexProducts extends Component {
     } else {
       productsJSX =
           this.state.products.map((product, index) => (
+<<<<<<< HEAD
             index > 5 &&
             <div className='d-flex'>
               <ProductCard
@@ -39,6 +40,15 @@ class HomeIndexProducts extends Component {
                 price={product.price}
               />
             </div>
+=======
+            index > (this.state.products.length - 3) &&
+            <ProductCard
+              product={product}
+              key={product.id}
+              name={product.name}
+              price={product.price}
+            />
+>>>>>>> d3145ce (Adds index products for home page)
           ))
     }
     return (

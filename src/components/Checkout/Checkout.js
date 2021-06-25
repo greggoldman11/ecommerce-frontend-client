@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react'
 import { CardElement, ElementsConsumer } from '@stripe/react-stripe-js'
 
@@ -24,6 +25,29 @@ class CheckoutForm extends React.Component {
       card: cardElement
     })
 
+=======
+import React, { Component } from 'react'
+import { CardElement } from '@stripe/react-stripe-js'
+// import { loadStripe } from '@stripe/stripe-js'
+
+// const stripePromise = loadStripe('pk_test_51J6FY8B3vfOMXNO3v2s6ihzCGfLtVhNiEO74qYeRUEBT0f3QVdkMqgkeEGGt8pZGX7SfVlh8DFYAmYSAJLNx8rCb008hIxE0mi')
+
+export default class CheckoutForm extends Component {
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const { stripe, elements } = this.props
+
+    if (!stripe || !elements) {
+
+    }
+
+    // const cardElement = elements.getElement(CardElement)
+
+    const { error, paymentMethod } = stripe.createPaymentMethod({
+      type: 'card',
+      card: CardElement
+    })
+>>>>>>> dbb3c3d (Add a checkout component)
     if (error) {
       console.log('[error]', error)
     } else {
@@ -34,6 +58,7 @@ class CheckoutForm extends React.Component {
   render () {
     const { stripe } = this.props
     return (
+<<<<<<< HEAD
       <form onSubmit={this.handleSubmit}>
         <CardElement
           options={{
@@ -68,3 +93,9 @@ export default function InjectedCheckoutForm () {
     </ElementsConsumer>
   )
 }
+=======
+      <button></button>
+    )
+  }
+}
+>>>>>>> dbb3c3d (Add a checkout component)

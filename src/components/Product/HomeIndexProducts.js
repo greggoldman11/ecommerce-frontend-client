@@ -15,6 +15,7 @@ class HomeIndexProducts extends Component {
   componentDidMount () {
     indexProducts()
       .then(res => this.setState({ products: res.data.products }))
+      .then(console.log(this.state.products))
       .catch(console.error)
   }
 
@@ -31,12 +32,14 @@ class HomeIndexProducts extends Component {
       productsJSX =
           this.state.products.map((product, index) => (
             index < (this.state.products.length - 3) &&
-            <ProductCard
-              product={product}
-              key={product.id}
-              name={product.name}
-              price={product.price}
-            />
+            <div key={product._id}>
+              <ProductCard
+                product={product}
+                id={product._id}
+                name={product.name}
+                price={product.price}
+              />
+            </div>
 
           ))
     }

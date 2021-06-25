@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 class Cart extends Component {
   constructor () {
@@ -14,6 +14,7 @@ class Cart extends Component {
     return (
       <Fragment>
         <h2>Cart Page</h2>
+        <Link to={'/checkout'}>Checkout</Link>
       </Fragment>
     )
   }

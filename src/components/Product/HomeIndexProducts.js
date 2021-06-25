@@ -30,7 +30,7 @@ class HomeIndexProducts extends Component {
     } else {
       productsJSX =
           this.state.products.map((product, index) => (
-            index > (this.state.products.length - 3) &&
+            index < (this.state.products.length - 3) &&
             <ProductCard
               product={product}
               key={product.id}
@@ -42,7 +42,9 @@ class HomeIndexProducts extends Component {
     return (
       <Fragment>
         <h2>Featured Products</h2>
-        {productsJSX}
+        <div className='d-flex'>
+          {productsJSX}
+        </div>
       </Fragment>
     )
   }

@@ -17,7 +17,7 @@ class ShowProduct extends Component {
     const { match } = this.props
     showProduct(match.params.id)
       .then(res => this.setState({ product: res.data.product }))
-      .then(console.log(this.state))
+      .catch(console.error)
   }
 
   render () {

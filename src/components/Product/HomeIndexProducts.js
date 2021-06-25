@@ -31,12 +31,14 @@ class HomeIndexProducts extends Component {
       productsJSX =
           this.state.products.map((product, index) => (
             index > 5 &&
-            <ProductCard
-              product={product}
-              key={product.id}
-              name={product.name}
-              price={product.price}
-            />
+            <div className='d-flex'>
+              <ProductCard
+                product={product}
+                key={product.id}
+                name={product.name}
+                price={product.price}
+              />
+            </div>
           ))
     }
     return (

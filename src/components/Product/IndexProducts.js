@@ -34,6 +34,7 @@ class IndexProducts extends Component {
             return (
               <li key={product._id}>
                 <ProductCard
+                  id={product._id}
                   name={product.name}
                   price={product.price}
                 />

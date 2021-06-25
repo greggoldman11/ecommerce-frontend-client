@@ -15,7 +15,6 @@ import HomeIndexProducts from './components/Product/HomeIndexProducts'
 import HomePage from './components/HomePage'
 import Footer from './components/Footer'
 import Cart from './components/Cart/Cart'
-import CheckoutForm from './components/Checkout/Checkout'
 // import Cart from './components/Cart'
 
 class App extends Component {
@@ -78,7 +77,7 @@ class App extends Component {
           <Route exact path='/' render={HomePage} />
           <Route exact path='/' component={HomeIndexProducts} />
           <AuthenticatedRoute user={user} path='/cart' render={() => (
-            <Cart msgAlert={this.msgAlert} user={user} component={CheckoutForm}/>
+            <Cart msgAlert={this.msgAlert} user={user}/>
           )}/>
         </main>
         <Footer />

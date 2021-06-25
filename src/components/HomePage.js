@@ -2,11 +2,7 @@ import React, { Fragment } from 'react'
 // import ProductCard from './Product/ProductCard'
 import Carousel from 'react-bootstrap/Carousel'
 // import { indexProducts } from './../api/products'
-<<<<<<< HEAD
-=======
-import IndexProducts from './Product/IndexProducts'
 
->>>>>>> b7e4852 (Commit to pull)
 const HomePage = () => {
   // const [products, setProducts] = useState(null)
   // useEffect(() => {

@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 import React from 'react'
 import { CardElement, ElementsConsumer } from '@stripe/react-stripe-js'
+import Form from 'react-bootstrap/Form'
 
 class CheckoutForm extends React.Component {
   handleSubmit = async (event) => {
@@ -59,7 +60,11 @@ export default class CheckoutForm extends Component {
     const { stripe } = this.props
     return (
 <<<<<<< HEAD
+<<<<<<< HEAD
       <form onSubmit={this.handleSubmit}>
+=======
+      <Form onSubmit={this.handleSubmit}>
+>>>>>>> 5e6f9d1 (Adds bootstrap form)
         <CardElement
           options={{
             style: {
@@ -79,7 +84,7 @@ export default class CheckoutForm extends Component {
         <button type="submit" disabled={!stripe}>
           Pay
         </button>
-      </form>
+      </Form>
     )
   }
 }

@@ -34,6 +34,7 @@ class HomeIndexProducts extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             index > 5 &&
 <<<<<<< HEAD
             <div className='d-flex'>
@@ -53,6 +54,9 @@ class HomeIndexProducts extends Component {
 =======
             index > (this.state.products.length - 3) &&
 >>>>>>> d3145ce (Adds index products for home page)
+=======
+            index < (this.state.products.length - 3) &&
+>>>>>>> f8f5e29 (Fixes homepage index layout)
             <ProductCard
 =======
             <ProductCard className='productCard'

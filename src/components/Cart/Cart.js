@@ -10,6 +10,8 @@ class Cart extends Component {
     }
   }
 
+  component
+
   render () {
     return (
       <Fragment>

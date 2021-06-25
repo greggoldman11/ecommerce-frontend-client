@@ -34,8 +34,8 @@ class HomeIndexProducts extends Component {
             index < (this.state.products.length - 3) &&
             <div key={product._id}>
               <ProductCard
+                key={product.id}
                 product={product}
-                id={product._id}
                 name={product.name}
                 price={product.price}
               />

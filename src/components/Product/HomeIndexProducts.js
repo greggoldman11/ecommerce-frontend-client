@@ -33,6 +33,7 @@ class HomeIndexProducts extends Component {
           this.state.products.map((product, index) => (
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             index > 5 &&
 <<<<<<< HEAD
             <div className='d-flex'>
@@ -49,6 +50,9 @@ class HomeIndexProducts extends Component {
             index < (this.state.products.length - 3) &&
 <<<<<<< HEAD
 >>>>>>> f8f5e29 (Fixes homepage index layout)
+=======
+            index > (this.state.products.length - 3) &&
+>>>>>>> d3145ce (Adds index products for home page)
             <ProductCard
 =======
             <ProductCard className='productCard'

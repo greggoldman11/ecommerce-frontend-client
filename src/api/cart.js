@@ -23,3 +23,42 @@ export const getCart = (id, user) => {
     }
   })
 }
+
+// This will add get all Carts
+export const getAllCarts = (id, user) => {
+  return axios({
+    method: 'get',
+    url: `${apiUrl}/cart`,
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
+
+// this commit will add item to Cart
+export const addToCart = (id, productId, user) => {
+  return axios({
+    method: 'PATCH',
+    url: `${apiUrl}/cart/${id}`,
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      'product': productId
+    }
+  })
+}
+
+// this commit will remove item from Cart
+export const removeFromCart = (id, productId, user) => {
+  return axios({
+    method: 'PATCH',
+    url: `${apiUrl}/cart-delete/${id}`,
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      'product': productId
+    }
+  })
+}

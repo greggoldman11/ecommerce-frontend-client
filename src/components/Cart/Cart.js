@@ -6,7 +6,7 @@ class Cart extends Component {
     super()
 
     this.state = {
-
+      completed: false
     }
   }
 

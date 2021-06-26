@@ -1,7 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 img {
-  height: 400px;
+  max-height: 100vh;
   margin-top: 20px;
 }
 
@@ -16,4 +16,27 @@ h2 {
 
 .button-link {
   color: white;
+}
+
+.checkout-page {
+  display: flex;
+  flex-direction: column;
+  // margin: auto;
+  align-items: center;
+  // width: 80vw;
+}
+
+.forms {
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkout-form {
+  margin: auto;
+  width: 70%;
+}
+
+.payment-box {
+  border: 3px solid blue;
+  height: auto;
 }

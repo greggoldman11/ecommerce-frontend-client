@@ -2,7 +2,29 @@ import React from 'react'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import Form from 'react-bootstrap/Form'
 
-class CheckoutForm extends React.Component {
+const fieldStyles = {
+  iconStyle: 'solid',
+  style: {
+    base: {
+      border: '12px solid #000000',
+      iconColor: '#c4f0ff',
+      color: '#3111f1',
+      padding: '30px',
+      fontWeight: 500,
+      fontSize: '16px',
+      textShadow: '1px 1px 2px pink',
+      '::placeholder': {
+        color: '#87bbfd'
+      }
+    },
+    invalid: {
+      iconColor: '#f60600',
+      color: '#f60600'
+    }
+  }
+}
+
+class StripeForm extends React.Component {
   handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault()
@@ -35,59 +57,28 @@ class CheckoutForm extends React.Component {
   render () {
     const { stripe } = this.props
     return (
-      <Form onSubmit={this.handleSubmit}>
-        <CardNumberElement
-          options={{
-            style: {
-              base: {
-                fontSize: '16px',
-                color: '#424770',
-                ':placeholder': {
-                  color: '#aab7c4'
-                }
-              },
-              invalid: {
-                color: '#9e2146'
-              }
-            }
-          }}
-        />
-        <CardExpiryElement
-          options={{
-            style: {
-              base: {
-                fontSize: '16px',
-                color: '#424770',
-                ':placeholder': {
-                  color: '#aab7c4'
-                }
-              },
-              invalid: {
-                color: '#9e2146'
-              }
-            }
-          }}
-        />
-        <CardCvcElement
-          options={{
-            style: {
-              base: {
-                fontSize: '16px',
-                color: '#424770',
-                ':placeholder': {
-                  color: '#aab7c4'
-                }
-              },
-              invalid: {
-                color: '#9e2146'
-              }
-            }
-          }}
-        />
-        <button type="submit" disabled={!stripe}>
+      <div className="payment-box">
+        <Form className="stripe-form" onSubmit={this.handleSubmit}>
+          <Form.Group>
+            <CardNumberElement
+              options={ fieldStyles }
+            />
+          </Form.Group>
+          <Form.Group>
+            <CardExpiryElement
+              options={ fieldStyles }
+            />
+          </Form.Group>
+          <Form.Group>
+            <CardCvcElement
+              options={ fieldStyles }
+            />
+          </Form.Group>
+          <button type="submit" disabled={!stripe}>
           Pay
-        </button>
-      </Form>
+          </button>
+        </Form>
+      </div>
     )
   }
 }
@@ -96,7 +87,7 @@ export default function InjectedCheckoutForm () {
   return (
     <ElementsConsumer>
       {({ elements, stripe }) => (
-        <CheckoutForm elements={elements} stripe={stripe} />
+        <StripeForm elements={elements} stripe={stripe} />
       )}
     </ElementsConsumer>
   )

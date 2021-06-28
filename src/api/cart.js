@@ -9,6 +9,13 @@ export const createCart = (user) => {
     url: `${apiUrl}/cart`,
     headers: {
       'Authorization': `Bearer ${user.token}`
+    },
+    data: {
+      cart: {
+        owner: '',
+        products: [],
+        completed: false
+      }
     }
   })
 }

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
+import { addToCart } from './../../api/cart'
+
 // const handleClick = (product) => {
 //   console.log('clicked', product)
 // }
@@ -16,7 +18,10 @@ const ProductCard = (product) => (
         {product.price}
       </Card.Text>
       <Button variant="primary"><Link className="button-link" to={`/products/${product.id}`}>See Product</Link></Button>
-      <Button variant="outline-success">Add To Cart</Button>
+
+      <Button variant="outline-success" onClick={() => {
+        addToCart()
+      }}>Add To Cart</Button>
     </Card.Body>
   </Card>
 )

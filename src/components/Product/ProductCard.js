@@ -10,15 +10,16 @@ import { addToCart } from './../../api/cart'
 // }
 
 const ProductCard = (product) => (
-  <Card style={{ width: '18rem' }} key={product._id}>
-    <Card.Img variant="top" src="holder.js/100px180" />
-    <Card.Body>
-      <Card.Title>{product.name}</Card.Title>
-      <Card.Text>
+  <Card className="card" key={product._id}>
+    <Card.Img className="card-image" variant="top" src={product.image}/>
+    <Card.Body className="card-body">
+      <Card.Title className="card-title">{product.name}</Card.Title>
+      <Card.Text className="card-text">
         {product.price}
       </Card.Text>
       <Button variant="primary"><Link className="button-link" to={`/products/${product.id}`}>See Product</Link></Button>
-      <Button variant="primary" onClick={() => {
+
+      <Button variant="outline-success" onClick={() => {
         addToCart()
       }}>Add To Cart</Button>
     </Card.Body>
@@ -26,3 +27,5 @@ const ProductCard = (product) => (
 )
 
 export default ProductCard
+
+// "https://images.unsplash.com/photo-1564466809058-bf4114d55352?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fHByb2R1Y3R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"

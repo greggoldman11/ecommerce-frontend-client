@@ -22,6 +22,8 @@ class IndexProducts extends Component {
     console.log(this.state.products)
 
     let productsJSX = ''
+    // const maxShown = 3
+    // let shown = 0
 
     if (this.state.products === null) {
       productsJSX = <Spinner animation="border" variant="warning" />
@@ -37,6 +39,7 @@ class IndexProducts extends Component {
                   id={product._id}
                   name={product.name}
                   price={product.price}
+                  image={product.image}
                 />
               </div>
             )

@@ -6,9 +6,10 @@ import InjectedCheckoutForm from '../Checkout/StripeForm'
 import Form from 'react-bootstrap/Form'
 // import Button from 'react-bootstrap/Button'
 const stripePromise = loadStripe('pk_test_51J6FY8B3vfOMXNO3v2s6ihzCGfLtVhNiEO74qYeRUEBT0f3QVdkMqgkeEGGt8pZGX7SfVlh8DFYAmYSAJLNx8rCb008hIxE0mi')
-const handleSubmit = () => {
-  event.preventDefault()
-}
+
+// const handleSubmit = () => {
+//   event.preventDefault()
+// }
 const CheckoutForm = () => (
   <div className="checkout-page container">
     <h1>Checkout</h1>

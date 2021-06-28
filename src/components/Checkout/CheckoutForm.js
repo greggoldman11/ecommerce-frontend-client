@@ -2,16 +2,16 @@ import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { loadStripe } from '@stripe/stripe-js'
 import { Elements } from '@stripe/react-stripe-js'
-import InjectedCheckoutForm from '../Checkout/Checkout'
+import InjectedCheckoutForm from '../Checkout/StripeForm'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+// import Button from 'react-bootstrap/Button'
 const stripePromise = loadStripe('pk_test_51J6FY8B3vfOMXNO3v2s6ihzCGfLtVhNiEO74qYeRUEBT0f3QVdkMqgkeEGGt8pZGX7SfVlh8DFYAmYSAJLNx8rCb008hIxE0mi')
 
 const CheckoutForm = () => (
   <div className="checkout-page container">
     <h1>Checkout</h1>
     <p>Please enter your information to finalize purchase.</p>
-    <div className="forms">
+    <div className="forms-container">
       <Form className="checkout-form">
         <Form.Group controlId="formBasicName">
           <Form.Label>Name</Form.Label>
@@ -45,14 +45,19 @@ const CheckoutForm = () => (
             Well never share your email with anyone else.
           </Form.Text>
         </Form.Group>
-        <Button variant="primary" type="submit">
+
+        {/* <Button variant="primary" type="submit">
           Submit
-        </Button>
+        </Button> */}
       </Form>
 
-      <Elements stripe={stripePromise}>
-        <InjectedCheckoutForm />
-      </Elements>
+      <div>
+        <h3>Enter payment info</h3>
+        <Elements stripe={stripePromise}>
+          <InjectedCheckoutForm />
+        </Elements>
+      </div>
+
     </div>
 
   </div>

@@ -84,7 +84,6 @@ class App extends Component {
             <CheckoutForm msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
-        <CheckoutForm />
         <Footer />
       </Fragment>
     )

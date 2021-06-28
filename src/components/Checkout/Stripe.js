@@ -12,6 +12,9 @@ export default class Checkout extends Component {
       })
     })
   }
+  price = (product) => {
+    console.log(product)
+  }
 
   render () {
     return (
@@ -21,7 +24,7 @@ export default class Checkout extends Component {
         allowRememberMe
         billingAddress
         shippingAddress
-        amount={100000}
+        amount={this.price}
       />
     )
   }

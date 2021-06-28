@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 
 const Footer = () => (
   <Fragment>
-    <p>&copy; Copyright 2021 The DOM-inators</p>
+    <p className="footer">&copy; Copyright 2021 The DOM-inators</p>
   </Fragment>
 )
 

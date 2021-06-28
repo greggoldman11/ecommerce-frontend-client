@@ -2,7 +2,7 @@ import React from 'react'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import Form from 'react-bootstrap/Form'
 
-import onCheckout from './../../api/products'
+import { onCheckout } from './../../api/products'
 
 const fieldStyles = {
   iconStyle: 'solid',

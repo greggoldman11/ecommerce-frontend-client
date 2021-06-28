@@ -50,10 +50,10 @@ export const addToCart = (cartId, productId, user) => {
 }
 
 // this commit will remove item from Cart
-export const removeFromCart = (id, productId, user) => {
+export const removeFromCart = (cartId, productId, user) => {
   return axios({
     method: 'PATCH',
-    url: `${apiUrl}/cart-delete/${id}`,
+    url: `${apiUrl}/cart-delete/${cartId}`,
     headers: {
       'Authorization': `Bearer ${user.token}`
     },

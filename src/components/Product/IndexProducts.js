@@ -32,10 +32,11 @@ class IndexProducts extends Component {
     } else {
       productsJSX =
           this.state.products.map(product => {
-            console.log(product)
+            console.log(product, this.props.user)
             return (
               <div key={product._id}>
                 <ProductCard
+                  user={this.props.user}
                   id={product._id}
                   name={product.name}
                   price={product.price}

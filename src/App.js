@@ -24,12 +24,13 @@ class App extends Component {
     this.state = {
       user: null,
       msgAlerts: [],
-      address: null
+      address: null,
+      cart: null
     }
   }
   setAddress = address => this.setState({ address })
   setUser = user => this.setState({ user })
-
+  setCart = cart => this.setState({ cart })
   clearUser = () => this.setState({ user: null })
 
   deleteAlert = (id) => {
@@ -45,7 +46,7 @@ class App extends Component {
     })
   }
   render () {
-    const { msgAlerts, user } = this.state
+    const { msgAlerts, user, cart } = this.state
 
     return (
       <Fragment>
@@ -62,10 +63,10 @@ class App extends Component {
         ))}
         <main className="container">
           <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} cart={this.setCart} />
           )} />
           <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} cart={this.setCart} />
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
@@ -73,10 +74,14 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route exact path='/products' component={IndexProducts} />
-          <Route exact path='/products/:id' component={ShowProduct} />
+          <Route exact path='/products' user={user} render={() => (
+            <IndexProducts user={user}/>
+          )} />
+          <Route exact path='/products/:id' user={user} cart={cart}render={() => (
+            <ShowProduct user={user} cart={cart}/>
+          )} />
           <Route exact path='/' render={HomePage} />
-          <Route exact path='/' component={HomeIndexProducts} />
+          <Route exact path='/' component={HomeIndexProducts}/>
           <AuthenticatedRoute user={user} path='/cart' render={() => (
             <Cart msgAlert={this.msgAlert} user={user}/>
           )}/>

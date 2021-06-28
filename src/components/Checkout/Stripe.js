@@ -19,6 +19,7 @@ export default class Checkout extends Component {
         token={this.onToken}
         stripeKey={'pk_test_51J6FY8B3vfOMXNO3v2s6ihzCGfLtVhNiEO74qYeRUEBT0f3QVdkMqgkeEGGt8pZGX7SfVlh8DFYAmYSAJLNx8rCb008hIxE0mi'}
         allowRememberMe
+        billingAddress
         shippingAddress
         amount={100000}
       />

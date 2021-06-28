@@ -57,7 +57,9 @@ const CheckoutForm = () => (
       <div>
         <h3>Enter payment info</h3>
         <Elements stripe={stripePromise}>
-          <InjectedCheckoutForm />
+          <InjectedCheckoutForm
+
+          />
         </Elements>
       </div>
 

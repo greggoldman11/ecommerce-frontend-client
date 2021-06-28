@@ -14,3 +14,14 @@ export const showProduct = productId => {
     url: apiUrl + `/products/${productId}`
   })
 }
+
+export const onCheckout = data => {
+  return axios({
+    method: 'POST',
+    url: apiUrl + '/create-checkout-session',
+    data: {
+      user: data.user,
+      products: data.products
+    }
+  })
+}

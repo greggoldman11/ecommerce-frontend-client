@@ -2,6 +2,8 @@ import React from 'react'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import Form from 'react-bootstrap/Form'
 
+import onCheckout from './../../api/products'
+
 const fieldStyles = {
   iconStyle: 'solid',
   style: {
@@ -50,7 +52,9 @@ class StripeForm extends React.Component {
     if (error) {
       console.log('[error]', error)
     } else {
-      console.log('[PaymentMethod]', paymentMethod)
+      onCheckout()
+        .then(console.log('[PaymentMethod]', paymentMethod))
+        .catch(console.log('[error]', error))
     }
   }
 

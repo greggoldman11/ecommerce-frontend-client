@@ -18,14 +18,6 @@ const ProductCard = (product) => (
         {product.price}
       </Card.Text>
       <Button variant="primary"><Link className="button-link" to={`/products/${product.id}`}>See Product</Link></Button>
-
-      <Button variant="outline-success" onClick={() => {
-        console.log(product.id)
-        // addToCart(cart, product.id, user)
-      }}><Link to={{
-          pathname: '/cart',
-          state: { products: product.id }
-        }}></Link>Add To Cart</Button>
     </Card.Body>
   </Card>
 )

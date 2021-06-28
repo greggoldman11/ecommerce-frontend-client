@@ -25,7 +25,7 @@ export const getCart = (id, user) => {
 }
 
 // This will add get all Carts
-export const getAllCarts = (id, user) => {
+export const getAllCarts = (user) => {
   return axios({
     method: 'get',
     url: `${apiUrl}/cart`,
@@ -36,10 +36,10 @@ export const getAllCarts = (id, user) => {
 }
 
 // this commit will add item to Cart
-export const addToCart = (id, productId, user) => {
+export const addToCart = (cartId, productId, user) => {
   return axios({
     method: 'PATCH',
-    url: `${apiUrl}/cart/${id}`,
+    url: `${apiUrl}/cart/${cartId}`,
     headers: {
       'Authorization': `Bearer ${user.token}`
     },

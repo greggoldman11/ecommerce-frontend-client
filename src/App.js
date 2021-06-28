@@ -23,10 +23,11 @@ class App extends Component {
     super(props)
     this.state = {
       user: null,
-      msgAlerts: []
+      msgAlerts: [],
+      address: null
     }
   }
-
+  setAddress = address => this.setState({ address })
   setUser = user => this.setState({ user })
 
   clearUser = () => this.setState({ user: null })
@@ -43,7 +44,6 @@ class App extends Component {
       return { msgAlerts: [...state.msgAlerts, { heading, message, variant, id }] }
     })
   }
-
   render () {
     const { msgAlerts, user } = this.state
 
@@ -81,7 +81,7 @@ class App extends Component {
             <Cart msgAlert={this.msgAlert} user={user}/>
           )}/>
           <AuthenticatedRoute user={user} path='/checkout' render={() => (
-            <CheckoutForm msgAlert={this.msgAlert} user={user} />
+            <CheckoutForm msgAlert={this.msgAlert} user={user} address={this.address}/>
           )} />
         </main>
         <Footer />

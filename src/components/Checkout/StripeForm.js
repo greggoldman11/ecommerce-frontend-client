@@ -30,7 +30,7 @@ class StripeForm extends React.Component {
   handleSubmit = async (event) => {
     // Block native form submission.
     event.preventDefault()
-
+    console.log('Props:', this.props)
     const { stripe, elements } = this.props
 
     if (!stripe || !elements) {
@@ -43,7 +43,7 @@ class StripeForm extends React.Component {
     // to find your CardElement because there can only ever be one of
     // each type of element.
     const cardElement = elements.getElement(CardNumberElement)
-
+    console.log('This is the card element:', cardElement)
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: 'card',
       card: cardElement

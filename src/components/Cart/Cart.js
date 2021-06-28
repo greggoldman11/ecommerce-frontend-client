@@ -23,11 +23,10 @@ class Cart extends Component {
         return (allCarts.data.carts.filter(cart => cart.completed === false))
       })
       .then(res => {
-        console.log(res)
+        console.log(res[0].products[1].price + res[0].products[0].price)
         this.setState({ products: res[0].products, cartId: res[0]._id })
       })
   }
-
   render () {
     const { cartId, products } = this.state
     // console.log(cartId, products)
@@ -44,6 +43,7 @@ class Cart extends Component {
               <div key={product._id}>
                 <h3>{product.name}</h3>
                 <p>{product.price}</p>
+                <p>Total: {this.total}</p>
                 <button
                   onClick={() => {
                     removeFromCart(cartId, products[0]._id, this.props.user)

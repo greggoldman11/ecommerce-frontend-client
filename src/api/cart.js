@@ -51,7 +51,7 @@ export const addToCart = (cartId, productId, user) => {
       'Authorization': `Bearer ${user.token}`
     },
     data: {
-      'product': productId
+      products: { id: productId }
     }
   })
 }
@@ -65,7 +65,7 @@ export const removeFromCart = (cartId, productId, user) => {
       'Authorization': `Bearer ${user.token}`
     },
     data: {
-      'product': productId
+      products: { id: productId }
     }
   })
 }

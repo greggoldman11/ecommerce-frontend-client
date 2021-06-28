@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React from 'react'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, ElementsConsumer } from '@stripe/react-stripe-js'
 import Form from 'react-bootstrap/Form'
@@ -97,7 +96,6 @@ export default function InjectedCheckoutForm () {
     </ElementsConsumer>
   )
 }
-=======
 // import React from 'react'
 // import { CardNumberElement, CardExpiryElement, CardCvcElement, ElementsConsumer } from '@stripe/react-stripe-js'
 // import Form from 'react-bootstrap/Form'
@@ -190,4 +188,3 @@ export default function InjectedCheckoutForm () {
 //     </ElementsConsumer>
 //   )
 // }
->>>>>>> 91efc44 (Add a checkout page)

@@ -1,18 +1,13 @@
 import React, { Component, Fragment } from 'react'
-<<<<<<< HEAD
-
 import { withRouter } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 
 import { getAllCarts, removeFromCart } from './../../api/cart'
-
-=======
-import { withRouter } from 'react-router-dom'
 import Stripe from '../Checkout/Stripe.js'
->>>>>>> 91efc44 (Add a checkout page)
+
 class Cart extends Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
       products: null,
@@ -35,7 +30,7 @@ class Cart extends Component {
 
   render () {
     const { cartId, products } = this.state
-    console.log(cartId, products)
+    // console.log(cartId, products)
     let cartJsx = ''
 
     if (this.state.products === null) {
@@ -52,15 +47,9 @@ class Cart extends Component {
                 <button
                   onClick={() => {
                     removeFromCart(cartId, products[0]._id, this.props.user)
-                      .then(getAllCarts(this.props.user))
-                      .then(allCarts => {
-                        console.log(allCarts)
-                        return (allCarts.data.carts.filter(cart => cart.completed === false))
-                      })
-                      .then(res => {
-                        console.log(res)
-                        this.setState({ products: res[0].products, cartId: res[0]._id })
-                      })
+                      .then(console.log('success'))
+                      .then(() => this.props.history.push('/products'))
+                      .catch(console.error)
                   }}>
                 Remove From Cart</button>
               </div>
@@ -71,11 +60,8 @@ class Cart extends Component {
     return (
       <Fragment>
         <h2>Cart Page</h2>
-<<<<<<< HEAD
         {cartJsx}
-=======
         <Stripe />
->>>>>>> 91efc44 (Add a checkout page)
       </Fragment>
     )
   }

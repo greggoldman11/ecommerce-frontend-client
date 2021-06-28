@@ -50,6 +50,7 @@ class ShowProduct extends Component {
               .then(() => {
                 addToCart(this.state.cartId, this.state.product._id, this.props.user)
                   .then(console.log('success'))
+                  .then(() => this.props.history.push('/cart'))
               })
           }
           }>Add to cart</Button>

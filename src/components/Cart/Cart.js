@@ -48,15 +48,8 @@ class Cart extends Component {
                   onClick={() => {
                     removeFromCart(cartId, products[0]._id, this.props.user)
                       .then(console.log('success'))
-                    // .then(getAllCarts(this.props.user))
-                    // .then(allCarts => {
-                    //   console.log(allCarts)
-                    //   return (allCarts.data.carts.filter(cart => cart.completed === false))
-                    // })
-                    // .then(res => {
-                    //   console.log(res)
-                    //   this.setState({ products: res[0].products, cartId: res[0]._id })
-                    // })
+                      .then(() => this.props.history.push('/products'))
+                      .catch(console.error)
                   }}>
                 Remove From Cart</button>
               </div>

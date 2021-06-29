@@ -4,6 +4,7 @@ $secondary: #fbf7f4;
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 body {
   background-color: $secondary;
@@ -17,6 +18,10 @@ h2 {
   text-align: center;
   margin-top: 20px;
   font-family: 'Yellowtail', cursive;
+}
+
+p {
+  font-family: 'Oswald', sans-serif;
 }
 
 .logo {
@@ -85,18 +90,51 @@ h2 {
 }
 
 .card {
-  width: 95%;
+  width: 200px;
   border-radius: 10px;
 }
 
 .card-image {
-  width: 148px;
+  width: 100%;
   height: 200px;
 }
 
 .show-product-image {
-  margin: 50px 50px;
+  margin: 20px 50px;
   border-radius: 10px;
+  order: -1
+}
+
+.show-product-info {
+  border: 5px dashed $primary;
+  padding: 50px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+.show-product {
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-image {
+  width: 150px;
+  height: 150px;
+  order: -1;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-bottom: 15px;
+}
+
+.add-to-cart-button {
+  border-radius: 10px;
+}
+
+.cart {
+  display: flex;
 }
 
 .footer {

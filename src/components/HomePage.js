@@ -22,7 +22,7 @@ const HomePage = () => {
           />
           <Carousel.Caption>
             <h3>Donuts On Donuts</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <p>The best quality with the best ingredients.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -34,7 +34,7 @@ const HomePage = () => {
 
           <Carousel.Caption>
             <h3>Unique Flavors? We got em</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <p>From chocolate to strawberry to unicorn, we got it all.</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -46,7 +46,7 @@ const HomePage = () => {
 
           <Carousel.Caption>
             <h3>Packed fresh and shipped to your door</h3>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <p>We got you like that.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

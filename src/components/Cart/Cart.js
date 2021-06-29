@@ -1,21 +1,18 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-
 import { getAllCarts, removeFromCart } from './../../api/cart'
-import Stripe from '../Checkout/Stripe.js'
+import Stripe from './../Checkout/Stripe'
 
 class Cart extends Component {
-  constructor (props) {
-    super(props)
-
+  constructor () {
+    super()
     this.state = {
       products: null,
       cartId: null,
       completed: false
     }
   }
-
   componentDidMount () {
     getAllCarts(this.props.user)
       .then(allCarts => {
@@ -23,15 +20,14 @@ class Cart extends Component {
         return (allCarts.data.carts.filter(cart => cart.completed === false))
       })
       .then(res => {
-        console.log(res[0].products[1].price + res[0].products[0].price)
+        console.log(res)
         this.setState({ products: res[0].products, cartId: res[0]._id })
       })
   }
   render () {
     const { cartId, products } = this.state
-    // console.log(cartId, products)
+    console.log(cartId, products)
     let cartJsx = ''
-
     if (this.state.products === null) {
       cartJsx = <Spinner animation="border" variant="warning" />
     } else if (this.state.products.length === 0) {
@@ -43,7 +39,6 @@ class Cart extends Component {
               <div key={product._id}>
                 <h3>{product.name}</h3>
                 <p>{product.price}</p>
-                <p>Total: {this.total}</p>
                 <button
                   onClick={() => {
                     removeFromCart(cartId, products[0]._id, this.props.user)
@@ -56,7 +51,6 @@ class Cart extends Component {
             )
           })
     }
-
     return (
       <Fragment>
         <h2>Cart Page</h2>
@@ -66,5 +60,4 @@ class Cart extends Component {
     )
   }
 }
-
 export default withRouter(Cart)

@@ -1,12 +1,27 @@
-@import '~bootstrap/scss/bootstrap';
+$primary: #6c9a8b;
+$secondary: #fbf7f4;
 
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
+body {
+  background-color: $secondary;
+}
 img {
-  max-height: 100vh;
+  width: 500px;
+  height: 450px;
 }
 
 h2 {
   text-align: center;
   margin-top: 20px;
+  font-family: 'Yellowtail', cursive;
+}
+
+.logo {
+  font-family: 'Yellowtail', cursive;
+  font-size: 30px;
 }
 
 .d-flex {

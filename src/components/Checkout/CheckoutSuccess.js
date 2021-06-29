@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class CheckoutSuccess extends Component {
-  constrctuor () {
+  constructor () {
     super()
     this.class = {
       confirmation: null

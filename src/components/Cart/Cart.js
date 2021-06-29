@@ -65,7 +65,7 @@ class Cart extends Component {
         <h2>Cart Page</h2>
         {cartJsx}
         <h3>{totalJsx}</h3>
-        <Stripe />
+        <Stripe amount={total}/>
       </Fragment>
     )
   }

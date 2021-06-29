@@ -8,12 +8,9 @@ export default class Checkout extends Component {
       body: JSON.stringify(token)
     }).then(res => {
       res.json().then(data => {
-        alert(`We are in business, ${data.email}`)
+        console.log(`We are in business, ${data.email}`)
       })
     })
-  }
-  price = (product) => {
-    console.log(product)
   }
 
   render () {

@@ -12,25 +12,31 @@ class Cart extends Component {
     this.state = {
       products: null,
       cartId: null,
-      completed: false
+      completed: false,
+      total: null
     }
   }
 
   componentDidMount () {
+    let total = 0
     getAllCarts(this.props.user)
       .then(allCarts => {
         console.log(allCarts)
         return (allCarts.data.carts.filter(cart => cart.completed === false))
       })
       .then(res => {
-        console.log(res[0].products[1].price + res[0].products[0].price)
-        this.setState({ products: res[0].products, cartId: res[0]._id })
+        console.log(res)
+        res[0].products.forEach(product => (total += product.price))
+        this.setState({ products: res[0].products, cartId: res[0]._id, total: total })
+        console.log(total)
       })
   }
   render () {
-    const { cartId, products } = this.state
+    const { cartId, products, total } = this.state
     // console.log(cartId, products)
     let cartJsx = ''
+
+    const totalJsx = `Your Cart total is: $${total}`
 
     if (this.state.products === null) {
       cartJsx = <Spinner animation="border" variant="warning" />
@@ -43,7 +49,6 @@ class Cart extends Component {
               <div key={product._id}>
                 <h3>{product.name}</h3>
                 <p>{product.price}</p>
-                <p>Total: {this.total}</p>
                 <button
                   onClick={() => {
                     removeFromCart(cartId, products[0]._id, this.props.user)
@@ -61,7 +66,8 @@ class Cart extends Component {
       <Fragment>
         <h2>Cart Page</h2>
         {cartJsx}
-        <Stripe />
+        <h3>{totalJsx}</h3>
+        <Stripe amount={total} />
       </Fragment>
     )
   }

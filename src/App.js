@@ -16,6 +16,7 @@ import HomePage from './components/HomePage'
 import Footer from './components/Footer'
 import Cart from './components/Cart/Cart'
 import CheckoutForm from './components/Checkout/CheckoutForm'
+import PastOrders from './components/PastOrders'
 // import Cart from './components/Cart'
 
 class App extends Component {
@@ -28,9 +29,9 @@ class App extends Component {
       cart: null
     }
   }
+
   setAddress = address => this.setState({ address })
   setUser = user => this.setState({ user })
-  setCart = cart => this.setState({ cart })
   clearUser = () => this.setState({ user: null })
 
   deleteAlert = (id) => {
@@ -63,10 +64,10 @@ class App extends Component {
         ))}
         <main className="container">
           <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} cart={this.setCart} />
+            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
           <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} cart={this.setCart} />
+            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
@@ -87,6 +88,9 @@ class App extends Component {
           )}/>
           <AuthenticatedRoute user={user} path='/checkout' render={() => (
             <CheckoutForm msgAlert={this.msgAlert} user={user} address={this.address}/>
+          )} />
+          <AuthenticatedRoute user={user} path='/past-orders' render={() => (
+            <PastOrders user={user} />
           )} />
         </main>
         <Footer />

@@ -35,7 +35,6 @@ class SignUp extends Component {
         return (res.data.user)
       })
       .then(user => createCart(user))
-      // .then((res) => setCart(res.data.cart._id))
       .then(() => msgAlert({
         heading: 'Sign Up Success',
         message: messages.signUpSuccess,

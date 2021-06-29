@@ -1,14 +1,12 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-
 import { getAllCarts, removeFromCart } from './../../api/cart'
-import Stripe from '../Checkout/Stripe.js'
+import Stripe from './../Checkout/Stripe'
 
 class Cart extends Component {
-  constructor (props) {
-    super(props)
-
+  constructor () {
+    super()
     this.state = {
       products: null,
       cartId: null,
@@ -16,7 +14,6 @@ class Cart extends Component {
       total: null
     }
   }
-
   componentDidMount () {
     let total = 0
     getAllCarts(this.props.user)
@@ -26,6 +23,7 @@ class Cart extends Component {
       })
       .then(res => {
         console.log(res)
+
         res[0].products.forEach(product => (total += product.price))
         this.setState({ products: res[0].products, cartId: res[0]._id, total: total })
         console.log(total)
@@ -61,7 +59,6 @@ class Cart extends Component {
             )
           })
     }
-
     return (
       <Fragment>
         <h2>Cart Page</h2>
@@ -72,5 +69,4 @@ class Cart extends Component {
     )
   }
 }
-
 export default withRouter(Cart)

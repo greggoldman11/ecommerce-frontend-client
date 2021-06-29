@@ -16,6 +16,7 @@ import HomePage from './components/HomePage'
 import Footer from './components/Footer'
 import Cart from './components/Cart/Cart'
 import CheckoutForm from './components/Checkout/CheckoutForm'
+import PastOrders from './components/PastOrders'
 // import Cart from './components/Cart'
 
 class App extends Component {
@@ -87,6 +88,9 @@ class App extends Component {
           )}/>
           <AuthenticatedRoute user={user} path='/checkout' render={() => (
             <CheckoutForm msgAlert={this.msgAlert} user={user} address={this.address}/>
+          )} />
+          <AuthenticatedRoute user={user} path='/past-orders' render={() => (
+            <PastOrders user={user} />
           )} />
         </main>
         <Footer />

@@ -9,18 +9,29 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
+import IndexProducts from './components/Product/IndexProducts'
+import ShowProduct from './components/Product/ShowProduct'
+import HomeIndexProducts from './components/Product/HomeIndexProducts'
+import HomePage from './components/HomePage'
+import Footer from './components/Footer'
+import Cart from './components/Cart/Cart'
+import CheckoutForm from './components/Checkout/CheckoutForm'
+import PastOrders from './components/PastOrders'
+// import Cart from './components/Cart'
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
       user: null,
-      msgAlerts: []
+      msgAlerts: [],
+      address: null,
+      cart: null
     }
   }
 
+  setAddress = address => this.setState({ address })
   setUser = user => this.setState({ user })
-
   clearUser = () => this.setState({ user: null })
 
   deleteAlert = (id) => {
@@ -35,9 +46,8 @@ class App extends Component {
       return { msgAlerts: [...state.msgAlerts, { heading, message, variant, id }] }
     })
   }
-
   render () {
-    const { msgAlerts, user } = this.state
+    const { msgAlerts, user, cart } = this.state
 
     return (
       <Fragment>
@@ -65,7 +75,25 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+          <Route exact path='/products' user={user} render={() => (
+            <IndexProducts user={user}/>
+          )} />
+          <Route exact path='/products/:id' user={user} cart={cart}render={() => (
+            <ShowProduct user={user} cart={cart}/>
+          )} />
+          <Route exact path='/' render={HomePage} />
+          <Route exact path='/' component={HomeIndexProducts}/>
+          <AuthenticatedRoute user={user} path='/cart' render={() => (
+            <Cart msgAlert={this.msgAlert} user={user}/>
+          )}/>
+          <AuthenticatedRoute user={user} path='/checkout' render={() => (
+            <CheckoutForm msgAlert={this.msgAlert} user={user} address={this.address}/>
+          )} />
+          <AuthenticatedRoute user={user} path='/past-orders' render={() => (
+            <PastOrders user={user} />
+          )} />
         </main>
+        <Footer />
       </Fragment>
     )
   }

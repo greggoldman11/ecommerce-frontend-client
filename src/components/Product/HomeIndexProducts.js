@@ -31,8 +31,8 @@ class HomeIndexProducts extends Component {
       productsJSX =
           this.state.products.map((product, index) => (
             index > (this.state.products.length - 4) &&
-            <div key={product._id} className='d-flex'>
-              <ProductCard
+            <div key={product._id} className='d-flex row'>
+              <ProductCard className="col-4"
                 id={product._id}
                 product={product}
                 name={product.name}

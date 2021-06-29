@@ -33,28 +33,33 @@ class ShowProduct extends Component {
     } else {
       productJsx = (
         <Fragment>
-          <h3>{product.name}</h3>
-          <p>{product.price}</p>
-          <p>{product.description}</p>
-          <img src={product.image}/>
-          <Button onClick={() => {
-            getAllCarts(this.props.user)
-              .then(allCarts => {
-                console.log(allCarts)
-                return (allCarts.data.carts.filter(cart => cart.completed === false))
-              })
-              .then((res) => {
-                return this.setState({ cartId: res[0]._id })
-              })
-              .then(() => console.log(this.state.cartId))
-              .then(() => {
-                addToCart(this.state.cartId, this.state.product._id, this.props.user)
-                  .then(console.log('success'))
-                  .then(() => this.props.history.push('/cart'))
-              })
-          }
-          }>Add to cart</Button>
+          <div className="show-product">
+            <div className="show-product-info">
+              <h2>{product.name}</h2>
+              <p>Price: ${product.price}</p>
+              <p>{product.description}</p>
+              <Button className="add-to-cart-button" onClick={() => {
+                getAllCarts(this.props.user)
+                  .then(allCarts => {
+                    console.log(allCarts)
+                    return (allCarts.data.carts.filter(cart => cart.completed === false))
+                  })
+                  .then((res) => {
+                    return this.setState({ cartId: res[0]._id })
+                  })
+                  .then(() => console.log(this.state.cartId))
+                  .then(() => {
+                    addToCart(this.state.cartId, this.state.product._id, this.props.user)
+                      .then(console.log('success'))
+                      .then(() => this.props.history.push('/cart'))
+                  })
+              }
+              }>Add to cart</Button>
+            </div>
+            <img className="show-product-image" src={product.image}/>
+          </div>
         </Fragment>
+
       )
     }
     return (

@@ -34,7 +34,7 @@ class IndexProducts extends Component {
           this.state.products.map(product => {
             console.log(product, this.props.user)
             return (
-              <div key={product._id}>
+              <div className="col-4" key={product._id}>
                 <ProductCard
                   user={this.props.user}
                   id={product._id}
@@ -49,7 +49,7 @@ class IndexProducts extends Component {
     return (
       <Fragment>
         <h2>All Products</h2>
-        <div className='d-flex'>
+        <div className='d-flex row'>
           {productsJSX}
         </div>
       </Fragment>

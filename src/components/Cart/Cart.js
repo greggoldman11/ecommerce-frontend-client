@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
 import { getAllCarts, removeFromCart } from './../../api/cart'
+import Stripe from './../Checkout/Stripe'
 
 class Cart extends Component {
   constructor () {
@@ -54,6 +55,7 @@ class Cart extends Component {
       <Fragment>
         <h2>Cart Page</h2>
         {cartJsx}
+        <Stripe />
       </Fragment>
     )
   }

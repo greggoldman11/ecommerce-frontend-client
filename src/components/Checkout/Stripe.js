@@ -12,8 +12,12 @@ export default class Checkout extends Component {
       })
     })
   }
+  price = (product) => {
+    console.log(product)
+  }
 
   render () {
+    console.log(this.props)
     return (
       <StripeCheckout
         token={this.onToken}
@@ -21,7 +25,7 @@ export default class Checkout extends Component {
         allowRememberMe
         billingAddress
         shippingAddress
-        amount={100000}
+        amount={this.props.amount * 100}
       />
     )
   }

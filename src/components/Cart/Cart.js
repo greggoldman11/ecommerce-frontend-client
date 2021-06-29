@@ -1,22 +1,21 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-
 import { getAllCarts, removeFromCart } from './../../api/cart'
-import Stripe from '../Checkout/Stripe.js'
+import Stripe from './../Checkout/Stripe'
 
 class Cart extends Component {
-  constructor (props) {
-    super(props)
-
+  constructor () {
+    super()
     this.state = {
       products: null,
       cartId: null,
-      completed: false
+      completed: false,
+      total: null
     }
   }
-
   componentDidMount () {
+    let total = 0
     getAllCarts(this.props.user)
       .then(allCarts => {
         console.log(allCarts)
@@ -24,14 +23,18 @@ class Cart extends Component {
       })
       .then(res => {
         console.log(res)
-        this.setState({ products: res[0].products, cartId: res[0]._id })
+
+        res[0].products.forEach(product => (total += product.price))
+        this.setState({ products: res[0].products, cartId: res[0]._id, total: total })
+        console.log(total)
       })
   }
-
   render () {
-    const { cartId, products } = this.state
+    const { cartId, products, total } = this.state
     // console.log(cartId, products)
     let cartJsx = ''
+
+    const totalJsx = `Your Cart total is: $${total}`
 
     if (this.state.products === null) {
       cartJsx = <Spinner animation="border" variant="warning" />
@@ -56,15 +59,14 @@ class Cart extends Component {
             )
           })
     }
-
     return (
       <Fragment>
         <h2>Cart Page</h2>
         {cartJsx}
-        <Stripe />
+        <h3>{totalJsx}</h3>
+        <Stripe amount={total} />
       </Fragment>
     )
   }
 }
-
 export default withRouter(Cart)

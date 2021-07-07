@@ -14,7 +14,6 @@ class PastOrders extends Component {
   componentDidMount () {
     getAllCarts(this.props.user)
       .then(allCarts => {
-        console.log(allCarts)
         return (allCarts.data.carts.filter(cart => cart.completed === true))
       })
       .then(carts => {

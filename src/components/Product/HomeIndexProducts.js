@@ -15,12 +15,10 @@ class HomeIndexProducts extends Component {
   componentDidMount () {
     indexProducts()
       .then(res => this.setState({ products: res.data.products }))
-      .catch(console.error)
+      .catch()
   }
 
   render () {
-    console.log(this.state.products)
-
     let productsJSX = ''
 
     if (this.state.products === null) {

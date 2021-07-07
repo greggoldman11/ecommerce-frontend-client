@@ -69,3 +69,13 @@ export const removeFromCart = (cartId, productId, user) => {
     }
   })
 }
+
+export const completeCart = (cartId, user) => {
+  return axios({
+    method: 'PATCH',
+    url: `${apiUrl}/orders/${cartId}`,
+    headers: {
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}

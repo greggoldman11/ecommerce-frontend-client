@@ -76,10 +76,10 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
           <Route exact path='/products' user={user} render={() => (
-            <IndexProducts user={user}/>
+            <IndexProducts user={user} msgAlert={this.msgAlert}/>
           )} />
           <Route exact path='/products/:id' user={user} cart={cart}render={() => (
-            <ShowProduct user={user} cart={cart}/>
+            <ShowProduct user={user} cart={cart} msgAlert={this.msgAlert}/>
           )} />
           <Route exact path='/' render={HomePage} />
           <Route exact path='/' component={HomeIndexProducts}/>

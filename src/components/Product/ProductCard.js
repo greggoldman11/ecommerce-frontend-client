@@ -3,12 +3,6 @@ import { Link, withRouter } from 'react-router-dom'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 
-// import { addToCart, getAllCarts } from './../../api/cart'
-
-// const handleClick = (product) => {
-//   console.log('clicked', product)
-// }
-
 const ProductCard = (product) => (
   <Card className="card" key={product._id}>
     <Card.Img className="card-image" variant="top" src={product.image}/>

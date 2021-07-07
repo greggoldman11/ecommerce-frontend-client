@@ -4,6 +4,7 @@ import { withRouter, Link } from 'react-router-dom'
 import Button from 'react-bootstrap/Button'
 import { showProduct } from './../../api/products'
 import { getAllCarts, addToCart } from './../../api/cart'
+import messages from '../AutoDismissAlert/messages'
 // import ShowProductHeading from './ShowProductHeading'
 
 class ShowProduct extends Component {
@@ -21,11 +22,19 @@ class ShowProduct extends Component {
     const { match } = this.props
     showProduct(match.params.id)
       .then(res => this.setState({ product: res.data.product }))
-      .catch(console.error)
+      .then(() => this.props.msgAlert({
+        heading: 'Show Product Success',
+        message: messages.showProductSuccess,
+        variant: 'success'
+      }))
+      .catch(() => this.props.msgAlert({
+        heading: 'Show Product failure',
+        message: messages.showProductFailue,
+        variant: 'danger'
+      }))
   }
 
   render () {
-    console.log(this.props)
     const { product, userId } = this.state
     let productJsx = ''
 
@@ -43,17 +52,24 @@ class ShowProduct extends Component {
                 ? <Button className="add-to-cart-button" onClick={() => {
                   getAllCarts(this.props.user)
                     .then(allCarts => {
-                      console.log(allCarts)
                       return (allCarts.data.carts.filter(cart => cart.completed === false))
                     })
                     .then((res) => {
                       return this.setState({ cartId: res[0]._id })
                     })
-                    .then(() => console.log(this.state.cartId))
                     .then(() => {
                       addToCart(this.state.cartId, this.state.product._id, this.props.user)
-                        .then(console.log('success'))
                         .then(() => this.props.history.push('/cart'))
+                        .then(() => this.props.msgAlert({
+                          heading: 'Add to cart Success',
+                          message: messages.addToCartSuccess,
+                          variant: 'success'
+                        }))
+                        .catch(() => this.props.msgAlert({
+                          heading: 'Add to cart failure',
+                          message: messages.addToCartFailure,
+                          variant: 'danger'
+                        }))
                     })
                 }
                 }>Add to cart</Button>

@@ -19,7 +19,6 @@ class Cart extends Component {
     let total = 0
     getAllCarts(this.props.user)
       .then(allCarts => {
-        console.log(allCarts)
         return (allCarts.data.carts.filter(cart => cart.completed === false))
       })
       .then(res => {
@@ -28,8 +27,7 @@ class Cart extends Component {
       })
   }
   render () {
-    const { cartId, products, total } = this.state
-    console.log(cartId, products)
+    const { cartId, total } = this.state
     let cartJsx = ''
     const totalJsx = `Your Cart Total Is: $${total}`
     if (this.state.products === null) {
@@ -39,7 +37,6 @@ class Cart extends Component {
     } else {
       cartJsx =
           this.state.products.map(product => {
-            console.log(this.state.products)
             return (
               <div className="cart" key={product._id}>
                 <div className="cart-info">
@@ -48,8 +45,8 @@ class Cart extends Component {
 
                   <Button
                     onClick={() => {
-                      removeFromCart(cartId, products[0]._id, this.props.user)
-                        .then(console.log('success'))
+                      removeFromCart(cartId, product._id, this.props.user)
+                        .then(('success'))
                         .then(() => this.props.history.push('/products'))
                         .catch(console.error)
                     }}>
@@ -65,7 +62,7 @@ class Cart extends Component {
         <h2>Cart Page</h2>
         {cartJsx}
         <h3>{totalJsx}</h3>
-        <Stripe amount={total}/>
+        <Stripe amount={total} user={this.props.user} cart={cartId} msgAlert={this.props.msgAlert}/>
       </Fragment>
     )
   }

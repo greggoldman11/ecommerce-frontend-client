@@ -19,7 +19,6 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link exact href="/">Home</Nav.Link>
     <Nav.Link href="#products">All Products</Nav.Link>
   </Fragment>
 )

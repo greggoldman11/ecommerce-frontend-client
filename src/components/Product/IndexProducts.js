@@ -3,6 +3,7 @@ import Spinner from 'react-bootstrap/Spinner'
 
 import { indexProducts } from './../../api/products'
 import ProductCard from './ProductCard'
+import messages from '../AutoDismissAlert/messages'
 
 class IndexProducts extends Component {
   constructor () {
@@ -15,12 +16,19 @@ class IndexProducts extends Component {
   componentDidMount () {
     indexProducts()
       .then(res => this.setState({ products: res.data.products }))
-      .catch(console.error)
+      .then(() => this.props.msgAlert({
+        heading: 'Show Products Success',
+        message: messages.indexProductsSuccess,
+        variant: 'success'
+      }))
+      .catch(() => this.props.msgAlert({
+        heading: 'Show Products failure',
+        message: messages.indexProductsFailue,
+        variant: 'danger'
+      }))
   }
 
   render () {
-    console.log(this.state.products)
-
     let productsJSX = ''
     // const maxShown = 3
     // let shown = 0
@@ -32,7 +40,6 @@ class IndexProducts extends Component {
     } else {
       productsJSX =
           this.state.products.map(product => {
-            console.log(product, this.props.user)
             return (
               <div className="col-4" key={product._id}>
                 <ProductCard

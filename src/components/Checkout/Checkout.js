@@ -24,12 +24,6 @@
 //       card: cardElement
 //     })
 //
-//     if (error) {
-//       console.log('[error]', error)
-//     } else {
-//       console.log('[PaymentMethod]', paymentMethod)
-//     }
-//   }
 //
 //   render () {
 //     const { stripe } = this.props

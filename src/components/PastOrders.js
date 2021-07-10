@@ -23,6 +23,26 @@ class PastOrders extends Component {
       })
   }
 
+  productTotals (products) {
+    let total = 0
+    console.log(products)
+    products.reduce(product => {
+      total += product.price
+    })
+    return total
+  }
+
+  orderTotal () {
+    const { orders } = this.state
+    console.log(orders)
+    let total = 0
+    const productTotals = this.productTotals()
+    orders.reduce(order => {
+      total += productTotals(order.products)
+    })
+    return total
+  }
+
   render () {
     const { orders } = this.state
 
@@ -34,8 +54,11 @@ class PastOrders extends Component {
       ordersJsx = <p>You have no past orders</p>
     } else {
       ordersJsx = orders.map(order => {
+        console.log(order)
         return (
-          <div key={order._id}>hey</div>
+          <div key={order._id}>
+            <span>{this.orderTotal(this.productTotals(order.products))}</span>
+          </div>
         )
       })
     }

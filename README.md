@@ -4,22 +4,22 @@ This application is an eCommerce store called Donuts R Us. It allows visitors to
 
 
 ## Backend Repo
-https://github.com/DOM-inators/ecommerce-back-end
+[Back-end Repository](https://github.com/DOM-inators/ecommerce-back-end)
 
 ## Sites
 
 ### Backend Deployed Site
-https://blooming-lowlands-35038.herokuapp.com/
+[Back-end Deployed Site](https://blooming-lowlands-35038.herokuapp.com/)
 
 ### Frontend Deployed Site
-https://dom-inators.github.io/ecommerce-frontend-client/
+[Front-end Deployed Site](https://dom-inators.github.io/ecommerce-frontend-client/)
 
 ## Technologies used:
 - JavaScript
 - React
 - CSS
 - Stripe
-- axios
+- Axios
 - MongoDB
 - Mongoose
 - Bootstrap
@@ -38,11 +38,11 @@ We broke into two pairs to tackle the front end and the back end separately for 
 
 ## User Stories:
 
-As an unregistered user, I would like to sign up with email and password.
-As a registered user, I would like to sign in with email and password.
-As a signed in user, I would like to change password.
-As a signed in user, I would like to sign out.
-As an unregistered user, I would like to see all of the products.
-As a signed in user, I would like to add and remove products from a shopping cart.
-As a signed in user, I would like to purchase products in a shopping cart using Stripe.
-As a signed in user, I would like to see all my past orders.
+-As an unregistered user, I would like to sign up with email and password.
+-As a registered user, I would like to sign in with email and password.
+-As a signed in user, I would like to change password.
+-As a signed in user, I would like to sign out.
+-As an unregistered user, I would like to see all of the products.
+-As a signed in user, I would like to add and remove products from a shopping cart.
+-As a signed in user, I would like to purchase products in a shopping cart using Stripe.
+-As a signed in user, I would like to see all my past orders.

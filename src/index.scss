@@ -8,6 +8,8 @@ $secondary: #fbf7f4;
 
 body {
   background-color: $secondary;
+  width: 100vw;
+  overflow-x: hidden;
 }
 img {
   width: 500px;
@@ -68,6 +70,17 @@ p {
   justify-content: center;
 }
 
+.past-order {
+  display: flex;
+  width: auto;
+  justify-content: start;
+  font-size: 20px;
+  border: 3px solid $primary;
+  font-weight: bold;
+  font-family: 'Oswald', sans-serif;
+  padding: 30px;
+}
+
 .checkout-image {
   width: 150px;
   height: 150px;
@@ -86,6 +99,8 @@ p {
 }
 
 .footer {
+  position: relative;
+  bottom: 0;
   text-align: center;
   left: 30px;
   margin-top: 40px;

@@ -28,7 +28,6 @@ class HomeIndexProducts extends Component {
     } else {
       productsJSX =
           this.state.products.map((product, index) => {
-            console.log(product)
             return index < 5 &&
               <div key={product._id} className='d-flex row'>
                 <ProductCard className="col-4"

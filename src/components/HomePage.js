@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 // import ProductCard from './Product/ProductCard'
 import Carousel from 'react-bootstrap/Carousel'
-// import { indexProducts } from './../api/products'
+import HomeIndexProducts from './Product/HomeIndexProducts'
 
 const HomePage = () => {
   return (
@@ -43,6 +43,7 @@ const HomePage = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <HomeIndexProducts />
     </Fragment>
 
   )

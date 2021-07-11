@@ -37,58 +37,6 @@ p {
   color: white;
 }
 
-.checkout-page {
-  display: flex;
-  flex-direction: column;
-  margin: auto;
-  // align-items: center;
-}
-
-.forms-container {
-  display: grid;
-  grid-template-columns: 50% 50%;
-  gap: 100px;
-  border: 1px solid blue;
-  font-weight: bold;
-  color: blue;
-  padding: 30px;
-  background-color: rgba(10, 225, 111, 0.2);
-}
-
-.payment-box {
-  border: 3px solid blue;
-  background-color: white;
-  width: 400px;
-  padding: 30px;
-  border-radius: 30px;
-
-  & .form-group  {
-    color: blue;
-    font-weight: bold;
-    border-radius: 15px;
-    border: 1px dotted blue;
-    padding: 10px;
-  }
-
-  & button {
-    color: white;
-    background-color: blue;
-    padding: 10px;
-    width: 100%;
-    margin-top: 15px;
-  }
-}
-
-.checkout-form {
-  & input {
-    color: blue;
-    font-weight: bold;
-    border-radius: 15px;
-    border-color: blue;
-    background-color: rgba(211, 216, 249, 0.9);
-  }
-}
-
 .card {
   width: 200px;
   border-radius: 10px;
@@ -138,6 +86,8 @@ p {
 }
 
 .footer {
+  text-align: center;
+  left: 30px;
   margin-top: 40px;
   font-size: .92rem;
 }

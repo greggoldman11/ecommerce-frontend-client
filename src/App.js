@@ -13,7 +13,7 @@ import IndexProducts from './components/Product/IndexProducts'
 import ShowProduct from './components/Product/ShowProduct'
 import HomeIndexProducts from './components/Product/HomeIndexProducts'
 import HomePage from './components/HomePage'
-import Footer from './components/Footer'
+import PageFooter from './components/Footer'
 import Cart from './components/Cart/Cart'
 import CheckoutForm from './components/Checkout/CheckoutForm'
 import PastOrders from './components/PastOrders'
@@ -93,7 +93,7 @@ class App extends Component {
             <PastOrders user={user} />
           )} />
         </main>
-        <Footer />
+        <PageFooter />
       </Fragment>
     )
   }

@@ -41,7 +41,7 @@ class IndexProducts extends Component {
       productsJSX =
           this.state.products.map(product => {
             return (
-              <div className="col-4" key={product._id}>
+              <div className="col-lg-4 col-md-6 col-sm-12" key={product._id}>
                 <ProductCard
                   user={this.props.user}
                   id={product._id}

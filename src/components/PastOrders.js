@@ -18,9 +18,20 @@ class PastOrders extends Component {
       })
       .then(carts => {
         if (carts) {
-          this.setState({ orders: carts })
+          carts.forEach(cart => {
+            cart.total = this.productTotals(cart.products)
+          })
+          return this.setState({ orders: carts })
         }
       })
+  }
+
+  productTotals (products) {
+    let total = 0
+    products.forEach(product => {
+      total += product.price
+    })
+    return total
   }
 
   render () {
@@ -35,12 +46,17 @@ class PastOrders extends Component {
     } else {
       ordersJsx = orders.map(order => {
         return (
-          <div key={order._id}>hey</div>
+          <div className="m-5 past-order" key={order._id}>
+            <span className="p-4">Order ID: {order._id}</span>
+            <span className="p-4">Order total: ${order.total}</span>
+            <span className="p-4">Order quantity: {order.products.length}</span>
+          </div>
         )
       })
     }
     return (
       <div>
+        <h1 className="m-5">Your Past Orders</h1>
         {ordersJsx}
       </div>
     )

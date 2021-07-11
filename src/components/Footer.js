@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
-const Footer = () => (
-  <Fragment>
-    <p className="footer">&copy; Copyright 2021 The DOM-inators</p>
-  </Fragment>
+const PageFooter = () => (
+  <footer className="footer">
+    <h6>&copy; Copyright 2021 The DOM-inators</h6>
+  </footer>
 )
 
-export default Footer
+export default PageFooter

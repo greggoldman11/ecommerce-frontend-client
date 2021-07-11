@@ -4,6 +4,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import { getAllCarts, removeFromCart } from './../../api/cart'
 import Stripe from './../Checkout/Stripe'
+import messages from '../AutoDismissAlert/messages'
 
 class Cart extends Component {
   constructor () {
@@ -19,7 +20,6 @@ class Cart extends Component {
     let total = 0
     getAllCarts(this.props.user)
       .then(allCarts => {
-        console.log(allCarts)
         return (allCarts.data.carts.filter(cart => cart.completed === false))
       })
       .then(res => {
@@ -28,8 +28,8 @@ class Cart extends Component {
       })
   }
   render () {
-    const { cartId, products, total } = this.state
-    console.log(cartId, products)
+    const { msgAlert } = this.props
+    const { cartId, total } = this.state
     let cartJsx = ''
     const totalJsx = `Your Cart Total Is: $${total}`
     if (this.state.products === null) {
@@ -39,7 +39,6 @@ class Cart extends Component {
     } else {
       cartJsx =
           this.state.products.map(product => {
-            console.log(this.state.products)
             return (
               <div className="cart" key={product._id}>
                 <div className="cart-info">
@@ -48,10 +47,18 @@ class Cart extends Component {
 
                   <Button
                     onClick={() => {
-                      removeFromCart(cartId, products[0]._id, this.props.user)
-                        .then(console.log('success'))
-                        .then(() => this.props.history.push('/products'))
-                        .catch(console.error)
+                      removeFromCart(cartId, product._id, this.props.user)
+                        .then(() => msgAlert({
+                          heading: 'Removed Item from Cart',
+                          message: messages.removeFromCartSuccess,
+                          variant: 'success'
+                        }))
+                        .then(() => this.props.history.push('/'))
+                        .catch(() => msgAlert({
+                          heading: 'Removed Item from Cart',
+                          message: messages.removeFromCartFailure,
+                          variant: 'danger'
+                        }))
                     }}>
                   Remove From Cart</Button>
                 </div>
@@ -65,7 +72,7 @@ class Cart extends Component {
         <h2>Cart Page</h2>
         {cartJsx}
         <h3>{totalJsx}</h3>
-        <Stripe amount={total}/>
+        <Stripe amount={total} user={this.props.user} cart={cartId} msgAlert={this.props.msgAlert}/>
       </Fragment>
     )
   }

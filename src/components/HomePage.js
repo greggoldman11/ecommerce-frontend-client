@@ -1,16 +1,9 @@
 import React, { Fragment } from 'react'
 // import ProductCard from './Product/ProductCard'
 import Carousel from 'react-bootstrap/Carousel'
-// import { indexProducts } from './../api/products'
+import HomeIndexProducts from './Product/HomeIndexProducts'
 
 const HomePage = () => {
-  // const [products, setProducts] = useState(null)
-  // useEffect(() => {
-  //   indexProducts()
-  //     .then(res => setProducts(res.data.products))
-  //   console.log(products)
-  //     .catch(console.error)
-  // })
   return (
     <Fragment>
       <Carousel fade>
@@ -50,6 +43,7 @@ const HomePage = () => {
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
+      <HomeIndexProducts />
     </Fragment>
 
   )

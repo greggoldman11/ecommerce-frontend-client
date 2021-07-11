@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Route } from 'react-router-dom'
+import { Route, HashRouter as Router, Switch } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
@@ -11,13 +11,12 @@ import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import IndexProducts from './components/Product/IndexProducts'
 import ShowProduct from './components/Product/ShowProduct'
-import HomeIndexProducts from './components/Product/HomeIndexProducts'
 import HomePage from './components/HomePage'
 import Footer from './components/Footer'
 import Cart from './components/Cart/Cart'
 import CheckoutForm from './components/Checkout/CheckoutForm'
 import PastOrders from './components/PastOrders'
-// import Cart from './components/Cart'
+import NotFound from './components/NotFound'
 
 class App extends Component {
   constructor (props) {
@@ -63,35 +62,39 @@ class App extends Component {
           />
         ))}
         <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-          <Route exact path='/products' user={user} render={() => (
-            <IndexProducts user={user}/>
-          )} />
-          <Route exact path='/products/:id' user={user} cart={cart}render={() => (
-            <ShowProduct user={user} cart={cart}/>
-          )} />
-          <Route exact path='/' render={HomePage} />
-          <Route exact path='/' component={HomeIndexProducts}/>
-          <AuthenticatedRoute user={user} path='/cart' render={() => (
-            <Cart msgAlert={this.msgAlert} user={user}/>
-          )}/>
-          <AuthenticatedRoute user={user} path='/checkout' render={() => (
-            <CheckoutForm msgAlert={this.msgAlert} user={user} address={this.address}/>
-          )} />
-          <AuthenticatedRoute user={user} path='/past-orders' render={() => (
-            <PastOrders user={user} />
-          )} />
+          <Router>
+            <Switch>
+              <Route path='/sign-up' render={() => (
+                <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+              )} />
+              <Route path='/sign-in' render={() => (
+                <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+              )} />
+              <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+                <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} path='/change-password' render={() => (
+                <ChangePassword msgAlert={this.msgAlert} user={user} />
+              )} />
+              <Route exact path='/products' user={user} render={() => (
+                <IndexProducts user={user} msgAlert={this.msgAlert}/>
+              )} />
+              <Route exact path='/products/:id' user={user} cart={cart}render={() => (
+                <ShowProduct user={user} cart={cart} msgAlert={this.msgAlert}/>
+              )} />
+              <Route exact path='/' component={HomePage} />
+              <AuthenticatedRoute user={user} path='/cart' render={() => (
+                <Cart msgAlert={this.msgAlert} user={user}/>
+              )}/>
+              <AuthenticatedRoute user={user} path='/checkout' render={() => (
+                <CheckoutForm msgAlert={this.msgAlert} user={user} address={this.address}/>
+              )} />
+              <AuthenticatedRoute user={user} path='/past-orders' render={() => (
+                <PastOrders user={user} />
+              )} />
+              <Route path='*' component={NotFound}/>
+            </Switch>
+          </Router>
         </main>
         <Footer />
       </Fragment>

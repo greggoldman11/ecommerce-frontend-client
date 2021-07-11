@@ -13,5 +13,7 @@ export default {
   indexProductsSuccess: 'Indexed products successfully!',
   indexProductsFailure: 'Failed to show products. Please try again.',
   checkoutSuccess: 'Checked out successfully!',
-  checkoutFailure: 'Failed to check out. Please try again.'
+  checkoutFailure: 'Failed to check out. Please try again.',
+  removedFromCartSuccess: 'Item removed successfully!',
+  removeFromCartFailure: 'Failed to remove item. Please try again.'
 }

@@ -4,6 +4,7 @@ import Spinner from 'react-bootstrap/Spinner'
 import Button from 'react-bootstrap/Button'
 import { getAllCarts, removeFromCart } from './../../api/cart'
 import Stripe from './../Checkout/Stripe'
+import messages from '../AutoDismissAlert/messages'
 
 class Cart extends Component {
   constructor () {
@@ -27,6 +28,7 @@ class Cart extends Component {
       })
   }
   render () {
+    const { msgAlert } = this.props
     const { cartId, total } = this.state
     let cartJsx = ''
     const totalJsx = `Your Cart Total Is: $${total}`
@@ -46,9 +48,17 @@ class Cart extends Component {
                   <Button
                     onClick={() => {
                       removeFromCart(cartId, product._id, this.props.user)
-                        .then(('success'))
-                        .then(() => this.props.history.push('/products'))
-                        .catch(console.error)
+                        .then(() => msgAlert({
+                          heading: 'Removed Item from Cart',
+                          message: messages.removeFromCartSuccess,
+                          variant: 'success'
+                        }))
+                        .then(() => this.props.history.push('/'))
+                        .catch(() => msgAlert({
+                          heading: 'Removed Item from Cart',
+                          message: messages.removeFromCartFailure,
+                          variant: 'danger'
+                        }))
                     }}>
                   Remove From Cart</Button>
                 </div>

@@ -26,6 +26,11 @@ p, .navbar-nav a, .card {
   letter-spacing: 2px;
 }
 
+.home-index-products {
+  justify-content: center;
+
+}
+
 .logo {
   font-family: 'Yellowtail', cursive;
   font-size: 30px;
@@ -96,8 +101,9 @@ p, .navbar-nav a, .card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 250px;
+  width: 100%;
   border-radius: 10px;
+  margin: 10px auto;
 }
 
 .card-image {
@@ -128,6 +134,16 @@ p, .navbar-nav a, .card {
 .show-product {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 600px) {
+  .show-product {
+    flex-direction: column-reverse;
+    }
+  .show-product-image, .show-product-info {
+    width: 80vw;
+    align-self: center;
+  }
 }
 
 .checkout-image {

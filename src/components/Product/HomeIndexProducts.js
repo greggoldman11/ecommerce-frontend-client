@@ -28,9 +28,9 @@ class HomeIndexProducts extends Component {
     } else {
       productsJSX =
           this.state.products.map((product, index) => {
-            return index < 5 &&
-              <div key={product._id} className='d-flex row'>
-                <ProductCard className="col-4"
+            return index < 4 &&
+              <div key={product._id} className='col-lg-3 col-md-6'>
+                <ProductCard
                   id={product._id}
                   product={product}
                   name={product.name}
@@ -43,7 +43,7 @@ class HomeIndexProducts extends Component {
     return (
       <Fragment>
         <h2>Featured Products</h2>
-        <div className="d-flex">
+        <div className="home-index-products justify-content-center row">
           {productsJSX}
         </div>
       </Fragment>
